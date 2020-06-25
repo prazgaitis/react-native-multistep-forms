@@ -30,7 +30,7 @@ import Step3 from "./steps/step3";
 import Step4 from "./steps/step4";
 
 const allSteps = [
-  { name: "step 1", component: Step1, props: { foo: "boo", bar: "baz" },
+  { name: "step 1", component: Step1, props: { foo: "boo", bar: "baz" }},
   { name: "step 2", component: Step2 },
   { name: "step 3", component: Step3 },
   { name: "step 4", component: Step4 }
