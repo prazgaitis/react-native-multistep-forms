@@ -16,7 +16,7 @@ export class Index extends Component {
       totalSteps: 0,
       userState: {},
       action: "bounceInLeft",
-      animationFinished: false
+      animationFinished: false,
     };
   }
 
@@ -88,7 +88,7 @@ export class Index extends Component {
     }
   };
 
-  saveState = state => {
+  saveState = (state) => {
     const { userState } = this.state;
     if (typeof state !== "object") {
       throw new Error("state must be an object");
@@ -105,12 +105,12 @@ export class Index extends Component {
     const {
       OutOnBack = defaultOutOnBack,
       comeInOnBack = defaultInOnBack,
-      comeInOnNext = defaultInOnNext
+      comeInOnNext = defaultInOnNext,
     } = this.props;
     if (!animationFinished) {
       this.setState({
         action: action == OutOnBack ? comeInOnBack : comeInOnNext,
-        animationFinished: true
+        animationFinished: true,
       });
     }
   };
@@ -119,6 +119,7 @@ export class Index extends Component {
     const { steps = 0 } = this.props;
     const { currentStep, action } = this.state;
     const Step = steps[currentStep].component;
+    const Props = steps[currentStep].props || {};
     return (
       <Animatable.View
         ref={this.handleViewRef}
@@ -131,6 +132,7 @@ export class Index extends Component {
           back={this.back}
           saveState={this.saveState}
           getState={this.getState}
+          {...Props}
         />
       </Animatable.View>
     );
