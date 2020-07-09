@@ -87,12 +87,12 @@ export class Index extends Component {
     }
   };
 
-  saveState = (state) => {
+  saveState = (state, callback) => {
     const { userState } = this.state;
     if (typeof state !== "object") {
       throw new Error("state must be an object");
     }
-    this.setState({ userState: { ...userState, ...state } });
+    this.setState({ userState: { ...userState, ...state } }, callback);
   };
 
   getState = () => {
